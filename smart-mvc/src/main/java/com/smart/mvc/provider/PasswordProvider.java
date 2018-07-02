@@ -53,6 +53,6 @@ public class PasswordProvider {
 	}
 
 	public static void main(String[] args) {
-		System.err.println("加密        后:" + encrypt("123456"));
+		System.err.println("加密后:" + encrypt("123456"));
 	}
 }
