@@ -35,13 +35,13 @@
 	</bean>
 
 	<!-- SSO令牌管理 -->
-	<bean id="tokenManager" class="com.smart.sso.server.common.LocalTokenManager">
+	<bean id="tokenManager" class="com.smart.sso.server.common.RedisTokenManager">
 		<property name="tokenTimeout" value="${sso.timeout}" />
 	</bean>
 
-	<!--redis : 用于部署多JVM实例时，RedisSession覆盖HttpSession实现Session共享
+	<!--redis : 用于部署多JVM实例时，RedisSession覆盖HttpSession实现Session共享-->
 	<import resource="classpath:spring-redis-sso.xml" />
-	 -->
+
 	<!--activeMQ : 用于权限有修改时，异步通知应用更新权限 -->
 	<import resource="applicationContext-mq.xml" />
 
@@ -49,7 +49,7 @@
 	<import resource="applicationContext-mybatis.xml" />
 	<!-- 引入服务相关 -->
 	<import resource="applicationContext-service.xml" />
-	<!-- 引入Dubbo服务相关
+	<!-- 引入Dubbo服务相关 -->
 	<import resource="dubbo-provider.xml" />
-	 -->
+
 </beans>

@@ -132,11 +132,11 @@ public class LoginController extends BaseController{
 	private void addTokenInCookie(String token, HttpServletRequest request, HttpServletResponse response) {
 		// Cookie添加token
 		Cookie cookie = new Cookie("token", token);
-		cookie.setPath("/");
+		cookie.setPath("/");//
 		if ("https".equals(request.getScheme())) {
 			cookie.setSecure(true);
 		}
-		cookie.setHttpOnly(true);
+		cookie.setHttpOnly(true);//防止攻击？？
 		response.addCookie(cookie);
 	}
 }

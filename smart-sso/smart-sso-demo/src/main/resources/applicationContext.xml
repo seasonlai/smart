@@ -30,14 +30,14 @@
 	</bean>
 	
 	<!-- 以下为Hessian和Dubbo提供Token验证和授权RPC服务，二选一即可，默认Hessian -->
-	<!-- Hessian -->
+	<!-- Hessian
 	<bean id="authenticationRpcService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
 		<property name="serviceUrl" value="${sso.server.url}/rpc/authenticationRpcService" />
 		<property name="serviceInterface" value="com.smart.sso.rpc.AuthenticationRpcService" />
-	</bean>
-	<!-- Dubbo
+	</bean>-->
+	<!-- Dubbo -->
 	<import resource="dubbo-consumer.xml" />
-	 -->
+
 
 	<!--redis : 用于部署多JVM实例时，RedisSession覆盖HttpSession实现Session共享
 	<import resource="classpath:spring-redis-sso.xml" />

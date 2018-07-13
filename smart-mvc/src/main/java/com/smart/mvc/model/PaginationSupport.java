@@ -77,9 +77,6 @@ public class PaginationSupport implements Serializable {
 	 * 获取总页数
 	 */
 	public long getPageCount() {
-		if (rowCount % pageSize == 0)
-			return rowCount / pageSize;
-		else
-			return (rowCount / pageSize) + 1;
+		return rowCount % pageSize == 0 ? rowCount / pageSize : (rowCount / pageSize) + 1;
 	}
 }
